@@ -1,4 +1,0 @@
-td_erros,mean 100 episode length,episodes,q_t,lives,mean 100 episode reward,% time spent exploring,steps,most_used_dataset,number_of_used,mean 100 episode ei
-nan,43.5657,100,nan,100,nan,99,4213,0,2.0,nan
-nan,42.29,200,nan,200,nan,99,8342,49,3.0,nan
-nan,42.99,300,nan,300,nan,99,12541,49,3.0,nan
