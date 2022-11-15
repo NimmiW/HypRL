@@ -7,7 +7,8 @@ Created on Fri Dec 14 13:51:20 2018
 """
 
 import numpy as np
-import tensorflow as tf  # pylint: ignore-module
+# import tensorflow as tf  # pylint: ignore-module
+import tensorflow.compat.v1 as tf
 import copy
 import os
 import functools

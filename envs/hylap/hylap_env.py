@@ -15,14 +15,23 @@ class ALEInterface(object):
     def __init__(self,config):
         hyper_parameter_size,max_sequence_length = config['obs_space']
         DATASET_PATH = config['path']
+        print("DATASET_PATH",DATASET_PATH)
         train = os.listdir(os.path.join(DATASET_PATH,'train'))
         test  = os.listdir(os.path.join(DATASET_PATH,'test'))
         metadata        = {}
         self.N_f =N_f= config['metafeatures']
+
+        train_ = []
+        for idx,file in enumerate(train):
+            if (file != ".DS_Store") and (file != '.idea'):
+                train_.append(file)
+        train = train_
+
         for idx,file in enumerate(train):
             metadata[idx] = {'rewards' : np.asarray(pd.read_csv(os.path.join(DATASET_PATH,'train',file),delimiter=' ',header=None))[:,:1],
                              'features': np.asarray(pd.read_csv(os.path.join(DATASET_PATH,'train',file),delimiter=' ',header=None))[0,-N_f:].reshape(1,-1),
                              'name':file}
+
         Lambda              = np.asarray(pd.read_csv(os.path.join(DATASET_PATH,'train',metadata[0]['name']),delimiter=' ',header=None))[:,1:-N_f]        
         self._used_lives    = 1
         self.metatest = {}

@@ -18,7 +18,7 @@ for metadata in ['nnMeta-v4','svmMeta-v4']:
                                  'num_datasets':50,
                                  'fold':fold,
                                  'nfolds':5,
-                                 'path':'../../metadata/{}/split-{}/'.format(dtemp,fold),
+                                 'path':'metadata/{}/split-{}/'.format(dtemp,fold),
                                  'metafeatures':metafeatures,
                                  'hyperparameters':hyp,
                                  'seed':0}},

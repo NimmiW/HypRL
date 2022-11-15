@@ -1,4 +1,4 @@
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from envs.spaces import Continuous,Box,Discrete
 
 def observation_input(ob_space, batch_size=None, name='Ob'):

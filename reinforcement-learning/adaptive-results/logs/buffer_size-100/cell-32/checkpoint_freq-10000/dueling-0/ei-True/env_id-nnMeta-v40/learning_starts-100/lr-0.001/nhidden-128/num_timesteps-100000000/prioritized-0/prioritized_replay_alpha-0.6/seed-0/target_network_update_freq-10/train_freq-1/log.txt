@@ -1,0 +1,42 @@
+Logging to /Users/nrweerad/Documents/CI/CI_waste/timeouts/HypRL/reinforcement-learning/adaptive-results/logs/buffer_size-100/cell-32/checkpoint_freq-10000/dueling-0/ei-True/env_id-nnMeta-v40/learning_starts-100/lr-0.001/nhidden-128/num_timesteps-100000000/prioritized-0/prioritized_replay_alpha-0.6/seed-0/target_network_update_freq-10/train_freq-1/
+Loaded model from /Users/nrweerad/Documents/CI/CI_waste/timeouts/HypRL/reinforcement-learning/adaptive-results/checkpoints/buffer_size-100/cell-32/checkpoint_freq-10000/dueling-0/ei-True/env_id-nnMeta-v40/learning_starts-100/lr-0.001/nhidden-128/num_timesteps-100000000/prioritized-0/prioritized_replay_alpha-0.6/seed-0/target_network_update_freq-10/train_freq-1/model
+--------------------------------------
+| % time spent exploring  | 99       |
+| episodes                | 100      |
+| lives                   | 100      |
+| mean 100 episode ei     | nan      |
+| mean 100 episode length | 43.6     |
+| mean 100 episode reward | nan      |
+| most_used_dataset       | 0        |
+| number_of_used          | 2        |
+| q_t                     | nan      |
+| steps                   | 4213     |
+| td_erros                | nan      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 99       |
+| episodes                | 200      |
+| lives                   | 200      |
+| mean 100 episode ei     | nan      |
+| mean 100 episode length | 42.3     |
+| mean 100 episode reward | nan      |
+| most_used_dataset       | 49       |
+| number_of_used          | 3        |
+| q_t                     | nan      |
+| steps                   | 8342     |
+| td_erros                | nan      |
+--------------------------------------
+Saving model due to mean reward increase: None -> nan
+--------------------------------------
+| % time spent exploring  | 99       |
+| episodes                | 300      |
+| lives                   | 300      |
+| mean 100 episode ei     | nan      |
+| mean 100 episode length | 43       |
+| mean 100 episode reward | nan      |
+| most_used_dataset       | 49       |
+| number_of_used          | 3        |
+| q_t                     | nan      |
+| steps                   | 12541    |
+| td_erros                | nan      |
+--------------------------------------

@@ -1,7 +1,7 @@
 import os
 import tempfile
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 import zipfile
 import cloudpickle
 import numpy as np
@@ -229,7 +229,12 @@ def learn(env,
     dataset_ctr[dataset_idx] +=1
     state      = env.reset()
     obs        = np.zeros(shape=env.observation_space.shape)
+    # print(obs.shape)
+    # print("env.env.ale.metadata[dataset_idx]['features']",env.env.ale.metadata[dataset_idx]['features'])
+    # print("np.append(np.repeat(np.NaN,repeats=N_t),env.env.ale.metadata[dataset_idx]['features']).reshape(1,-1)",
+    #       np.append(np.repeat(np.NaN,repeats=N_t),env.env.ale.metadata[dataset_idx]['features']).reshape(1,-1))
     obs[0,:]   = np.append(np.repeat(np.NaN,repeats=N_t),env.env.ale.metadata[dataset_idx]['features']).reshape(1,-1)
+    # obs[0, :] = env.env.ale.metadata[dataset_idx]['features'].reshape(1,-1)
     reset   = True
     prev_r  = 0
     with tempfile.TemporaryDirectory() as td:
@@ -262,7 +267,12 @@ def learn(env,
             reset = False
             new_state, rew, done, _ = env.step(env_action,dataset_id=dataset_idx)
             new_obs = copy.copy(obs)
-            new_obs[env.env._get_ep_len(),:] = np.append(new_state,np.append(rew,env.env.ale.metadata[dataset_idx]['features'])).reshape(1,-1)
+            # print(env.env.ale.metadata[dataset_idx]['features'])
+            # print(rew)
+            # print(new_state)
+            # print(np.append(new_state,np.append(rew,env.env.ale.metadata[dataset_idx]['features'])).reshape(1,-1))
+            # # new_obs[env.env._get_ep_len(),:] = np.append(new_state,np.append(rew,env.env.ale.metadata[dataset_idx]['features'])).reshape(1,-1)
+            new_obs[env.env._get_ep_len(),:] = np.append(new_state,env.env.ale.metadata[dataset_idx]['features']).reshape(1,-1)
             replay_buffer.add(obs, action, np.maximum(0,rew-prev_r) if ei else rew, new_obs, float(done),seq=seq)
             obs = new_obs
 
